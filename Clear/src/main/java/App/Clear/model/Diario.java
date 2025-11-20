@@ -29,11 +29,11 @@ public class Diario {
     private String contenido;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JsonBackReference // opcional, solo si haces la relación inversa en Estado_Animo
+    @JsonBackReference
     @JoinColumn(
             name = "id_estado_animo",
             nullable = true,
             foreignKey = @ForeignKey(name = "fk_diario_estadoAnimo")
     )
-    private Estado_Animo estadoAnimo; // puede ser null
+    private Estado_Animo estadoAnimo;
 }

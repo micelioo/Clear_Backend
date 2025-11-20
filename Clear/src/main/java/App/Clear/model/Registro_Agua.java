@@ -22,6 +22,6 @@ public class Registro_Agua {
     private LocalDate fecha;
 
     @Column(nullable = false)
-    private Integer cantidadMl; // agua ingerida en mililitros
+    private Integer cantidadMl;
 }
 

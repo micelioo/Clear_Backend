@@ -21,7 +21,7 @@ public class Estado_Animo {
     private Long idEstadoAnimo;
 
     @Column(nullable = false)
-    private String nombre; // Feliz, Triste, etc.
+    private String nombre; // feliz, triste, etc.
 
     @Column(nullable = true)
     private String icono; // nombre del recurso

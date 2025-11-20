@@ -17,7 +17,6 @@ public class TareaController {
     @Autowired
     private TareaService tareaService;
 
-    /** Lista todas las tareas */
     @GetMapping
     public ResponseEntity<List<Tarea>> listar() {
         List<Tarea> tareas = tareaService.findAll();
@@ -27,7 +26,6 @@ public class TareaController {
         return ResponseEntity.ok(tareas);
     }
 
-    /** Obtiene una tarea por id */
     @GetMapping("/{id}")
     public ResponseEntity<Tarea> buscar(@PathVariable Long id) {
         Tarea tarea = tareaService.findById(id);
@@ -37,14 +35,12 @@ public class TareaController {
         return ResponseEntity.ok(tarea);
     }
 
-    /** Crea una nueva tarea */
     @PostMapping
     public ResponseEntity<Tarea> crear(@RequestBody Tarea tarea) {
         Tarea nueva = tareaService.save(tarea);
         return ResponseEntity.status(HttpStatus.CREATED).body(nueva);
     }
 
-    /** Actualiza una tarea existente */
     @PutMapping("/{id}")
     public ResponseEntity<Tarea> actualizar(@PathVariable Long id, @RequestBody Tarea datos) {
         Tarea existente = tareaService.findById(id);
@@ -55,14 +51,12 @@ public class TareaController {
         existente.setTitulo(datos.getTitulo());
         existente.setDescripcion(datos.getDescripcion());
         existente.setFechaLimite(datos.getFechaLimite());
-        existente.setEstado(datos.getEstado());
         existente.setPrioridad(datos.getPrioridad());
 
         Tarea actualizada = tareaService.save(existente);
         return ResponseEntity.ok(actualizada);
     }
 
-    /** Elimina una tarea por id */
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> eliminar(@PathVariable Long id) {
         Tarea existente = tareaService.findById(id);
